@@ -4,7 +4,9 @@ const fs = require('fs');
 const swaggerUi = require('swagger-ui-express');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*' // Дозволяє запити з будь-якого сайту
+}));
 
 // Читаємо нашу базу
 const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
